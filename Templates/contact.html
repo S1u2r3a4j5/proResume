@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<!-- End Header -->
+
+<main id="main">
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>My contact detail is here, any type of queries for website development feel free and contact me.</p>
+      </div>
+      
+       <p class=" btn btn-success">{{ n }}</p>
+
+      <div>
+        <iframe style="border:0; width: 100%; height: 270px;"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3733223.4919059603!2d78.42099679999998!3d23.970125000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1697860588369!5m2!1sen!2sin"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <div class="row mt-5">
+
+        <div class="col-lg-4">
+          <div class="info">
+            <div class="address">
+              <i class="bi bi-geo-alt"></i>
+              <h4>Location:</h4>
+              <p>Seoni Madhya Pradesh (India)</p>
+            </div>
+
+            <div class="email">
+              <i class="bi bi-envelope"></i>
+              <h4>Email:</h4>
+              <p>Surajthakur4808@gmail.com</p>
+            </div>
+
+            <div class="phone">
+              <i class="bi bi-phone"></i>
+              <h4>Call:</h4>
+              <p>+91 9340875961</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+
+          <!-- <form action="forms/contact.php" method="post" role="form" class="php-email-form"> -->
+          <form action= "{% url 'saveData' %}" method="post" role="form">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group mt-3">
+              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+            </div>
+
+            <div class="text-center">
+              <input class="btn btn-success" type="Submit" name="btn" value="Send Message">
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+
+{% endblock content %}
